@@ -11,7 +11,7 @@ const btnDestroyEl = document.querySelector('[data-destroy]')
 const divEl=document.querySelector("#boxes")
 
 btnCreateEl.addEventListener("click", onClickCreate)
-// btnDestroyEl.querySelector("click", onClickDestroy)
+btnDestroyEl.addEventListener("click", onClickDestroy)
 
 
 function onClickCreate() {
@@ -19,26 +19,28 @@ function onClickCreate() {
   
 }
 
-
-
-
+function onClickDestroy() {
+  if (divEl.children.length > 0) {
+    [...divEl.children].forEach(item=>item.remove())
+  }
+ 
+}
 
 function createBoxes(amount) {
   const arrdiv = []
-  let qwe=0
   for (let i = 0; i < amount; i += 1){
     arrdiv.push(`<div></div>`)
   }
-
-
-
-
   divEl.insertAdjacentHTML('beforeend', arrdiv.join(""))
-
-console.dir(divEl.children);
-
-
-  // divEl.children.style.width = 30;
-  // divEl.children.style.background = "black"
-  
+ const divList=[...divEl.children]
+let qwe=0
+  divList.forEach(item => {
+    item.style.width = 30 + qwe + 'px'
+    item.style.height = 30 + qwe + 'px'
+    item.style.background = `${getRandomHexColor()}`
+    qwe += 10;
+  })
+  inputEl.value = "";
 }
+
+
