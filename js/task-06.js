@@ -3,15 +3,17 @@ const inputEl = document.querySelector('[data-length="6"]')
 inputEl.addEventListener("blur", onBlur)
 function onBlur() {
     
-    if (inputEl.value.length === Number(inputEl.dataset.length)) {
-        inputEl.classList.remove("invalid")
-        inputEl.classList.add("valid")
+    if (inputEl.value.trim().length === Number(inputEl.dataset.length)) {
+        AddRemove("valid","invalid")
     }
     else {
-        inputEl.classList.remove("valid")
-        inputEl.classList.add("invalid")
+        AddRemove("invalid","valid")
     }
+}
 
+
+function AddRemove(a,b) {
     
-    
+    inputEl.classList.add(a)
+    inputEl.classList.remove(b)
 }

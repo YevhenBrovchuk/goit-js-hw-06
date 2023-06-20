@@ -21,25 +21,29 @@ function onClickCreate() {
 
 function onClickDestroy() {
   if (divEl.children.length > 0) {
-    [...divEl.children].forEach(item=>item.remove())
+    // [...divEl.children].forEach(item=>item.remove())
+    divEl.innerHTML(" ");
   }
  
 }
 
 function createBoxes(amount) {
+  onClickDestroy()
   const arrdiv = []
+  let qwe=0
   for (let i = 0; i < amount; i += 1){
-    arrdiv.push(`<div></div>`)
+    arrdiv.push(`<div ${style.width = 30 + qwe} + px ${ style.height = 30 + qwe} + px ${style.background = getRandomHexColor()}></div>`)
+  qwe += 10;
   }
   divEl.insertAdjacentHTML('beforeend', arrdiv.join(""))
- const divList=[...divEl.children]
-let qwe=0
-  divList.forEach(item => {
-    item.style.width = 30 + qwe + 'px'
-    item.style.height = 30 + qwe + 'px'
-    item.style.background = `${getRandomHexColor()}`
-    qwe += 10;
-  })
+//  const divList=[...divEl.children]
+// let qwe=0
+  // divList.forEach(item => {
+  //   item.style.width = 30 + qwe + 'px'
+  //   item.style.height = 30 + qwe + 'px'
+  //   item.style.background = `${getRandomHexColor()}`
+  //   qwe += 10;
+  // })
   inputEl.value = "";
 }
 

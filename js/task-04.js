@@ -5,9 +5,6 @@ const inputEl = document.querySelector("#value")
 
 let counterValue = 0;
 
-console.log(inputEl.textContent);
-
-
 btnDecrementEl.addEventListener('click', onClickDec)
 btnIncrementEl.addEventListener('click', onClickInc)
 
