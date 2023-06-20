@@ -20,30 +20,24 @@ function onClickCreate() {
 }
 
 function onClickDestroy() {
-  if (divEl.children.length > 0) {
-    // [...divEl.children].forEach(item=>item.remove())
-    divEl.innerHTML(" ");
-  }
- 
+    divEl.innerHTML="";
 }
 
 function createBoxes(amount) {
   onClickDestroy()
   const arrdiv = []
-  let qwe=0
+  let size=30
   for (let i = 0; i < amount; i += 1){
-    arrdiv.push(`<div ${style.width = 30 + qwe} + px ${ style.height = 30 + qwe} + px ${style.background = getRandomHexColor()}></div>`)
-  qwe += 10;
+    const div = document.createElement("div")
+    div.style.width = `${size}px`
+    div.style.height=`${size}px`
+    div.style.background = getRandomHexColor()
+    arrdiv.push(div)
+    console.log(arrdiv);
+  size += 10;
   }
-  divEl.insertAdjacentHTML('beforeend', arrdiv.join(""))
-//  const divList=[...divEl.children]
-// let qwe=0
-  // divList.forEach(item => {
-  //   item.style.width = 30 + qwe + 'px'
-  //   item.style.height = 30 + qwe + 'px'
-  //   item.style.background = `${getRandomHexColor()}`
-  //   qwe += 10;
-  // })
+  divEl.append(...arrdiv)
+
   inputEl.value = "";
 }
 
