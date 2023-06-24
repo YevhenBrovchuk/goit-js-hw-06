@@ -28,6 +28,11 @@ function createBoxes(amount) {
   const arrdiv = []
   let size=30
   for (let i = 0; i < amount; i += 1){
+    // додавання стилів та висоти  та іншого в дів
+    // const markup = `<div style="width:${size}px; height:${size}px;"></div>`;
+
+
+
     const div = document.createElement("div")
     div.style.width = `${size}px`
     div.style.height=`${size}px`

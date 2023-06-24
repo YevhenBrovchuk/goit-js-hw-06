@@ -4,15 +4,15 @@ inputEl.addEventListener("blur", onBlur)
 function onBlur() {
     
     if (inputEl.value.trim().length === Number(inputEl.dataset.length)) {
-        AddRemove("valid","invalid")
+        addRemove("valid","invalid")
     }
     else {
-        AddRemove("invalid","valid")
+        addRemove("invalid","valid")
     }
 }
 
 
-function AddRemove(a,b) {
+function addRemove(a,b) {
     
     inputEl.classList.add(a)
     inputEl.classList.remove(b)
